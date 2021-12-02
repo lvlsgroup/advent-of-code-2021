@@ -3,6 +3,7 @@ fun main() {
     day.a()
     day.b()
 }
+
 class Day2 {
     fun main() {
         a()
@@ -11,14 +12,14 @@ class Day2 {
 
     fun a() {
         val reader = getReader("day2")
-        var instructionAndMovement: String = reader.readLn()
         var horizontal = 0
         var vertical = 0
-        while (instructionAndMovement != " ") {
+        var instructionAndMovement = reader.readLn()
+        while (instructionAndMovement != null) {
             val split = instructionAndMovement.split(" ")
             val instruction = split[0]
             val movement = split[1]
-            when(instruction) {
+            when (instruction) {
                 "forward" -> horizontal += movement.toInt()
                 "down" -> vertical += movement.toInt()
                 "up" -> vertical -= movement.toInt()
@@ -30,15 +31,15 @@ class Day2 {
 
     fun b() {
         val reader = getReader("day2")
-        var instructionAndMovement: String = reader.readLn()
         var horizontal = 0
         var vertical = 0
         var aim = 0
-        while (instructionAndMovement != " ") {
+        var instructionAndMovement = reader.readLn()
+        while (instructionAndMovement != null) {
             val split = instructionAndMovement.split(" ")
             val instruction = split[0]
             val movement = split[1]
-            when(instruction) {
+            when (instruction) {
                 "forward" -> {
                     horizontal += movement.toInt()
                     vertical += movement.toInt() * aim

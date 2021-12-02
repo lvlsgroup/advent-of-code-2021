@@ -9,10 +9,10 @@ class Day1 {
 
     fun a() {
         val reader = getReader("day1")
-        var currentNumber: Int = reader.readInt()
+        var currentNumber = reader.readInt()
         var inreases = 0
         var lastNumber = Integer.MAX_VALUE
-        while (currentNumber != -1) {
+        while (currentNumber != null) {
             if (currentNumber > lastNumber) {
                 inreases++
             }
@@ -25,15 +25,15 @@ class Day1 {
     fun b() {
         val reader = getReader("day1")
         val ints = mutableListOf<Int>()
-        var currentNumber: Int = reader.readInt()
-        ints.add(currentNumber)
+        var currentNumber = reader.readInt()
+        currentNumber?.let { ints.add(it) }
         var inreases = 0
-        while (currentNumber != -1) {
+        while (currentNumber != null) {
             if (ints.size > 3 && ints.takeLast(3).sum() > (ints.takeLast(4).sum() - ints.takeLast(1).sum())) {
                 inreases++
             }
             currentNumber = reader.readInt()
-            ints.add(currentNumber)
+            currentNumber?.let { ints.add(it) }
         }
         println(inreases)
     }
