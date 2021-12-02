@@ -7,4 +7,10 @@ abstract class Runner {
     abstract fun b()
 
     abstract fun a()
+    fun <T> print(result: T, correct: T? = null) {
+        if (correct != null && result != correct) {
+            throw Error("Result: $result, correct: $correct")
+        }
+        println(result)
+    }
 }

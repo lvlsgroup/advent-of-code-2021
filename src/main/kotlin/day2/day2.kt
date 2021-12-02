@@ -19,7 +19,7 @@ class Day2 : Runner() {
             }
             instructionAndMovement = reader.readLn()
         }
-        println(horizontal * vertical)
+        print(horizontal * vertical, 1714680)
     }
 
     override fun b() {
@@ -42,6 +42,6 @@ class Day2 : Runner() {
             }
             instructionAndMovement = reader.readLn()
         }
-        println(horizontal * vertical)
+        print(horizontal * vertical, 1963088820)
     }
 }

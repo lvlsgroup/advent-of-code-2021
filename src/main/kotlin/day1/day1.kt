@@ -15,7 +15,7 @@ class Day1 : Runner() {
             lastNumber = currentNumber
             currentNumber = reader.readInt()
         }
-        println(inreases)
+        print(inreases, 1791)
     }
 
     override fun b() {
@@ -31,6 +31,6 @@ class Day1 : Runner() {
             currentNumber = reader.readInt()
             currentNumber?.let { ints.add(it) }
         }
-        println(inreases)
+        print(inreases, 1963088820)
     }
 }
