@@ -18,11 +18,11 @@ class Day2 {
         while (instructionAndMovement != null) {
             val split = instructionAndMovement.split(" ")
             val instruction = split[0]
-            val movement = split[1]
+            val action = split[1]
             when (instruction) {
-                "forward" -> horizontal += movement.toInt()
-                "down" -> vertical += movement.toInt()
-                "up" -> vertical -= movement.toInt()
+                "forward" -> horizontal += action.toInt()
+                "down" -> vertical += action.toInt()
+                "up" -> vertical -= action.toInt()
             }
             instructionAndMovement = reader.readLn()
         }
@@ -38,14 +38,14 @@ class Day2 {
         while (instructionAndMovement != null) {
             val split = instructionAndMovement.split(" ")
             val instruction = split[0]
-            val movement = split[1]
+            val action = split[1]
             when (instruction) {
                 "forward" -> {
-                    horizontal += movement.toInt()
-                    vertical += movement.toInt() * aim
+                    horizontal += action.toInt()
+                    vertical += action.toInt() * aim
                 }
-                "down" -> aim += movement.toInt()
-                "up" -> aim -= movement.toInt()
+                "down" -> aim += action.toInt()
+                "up" -> aim -= action.toInt()
             }
             instructionAndMovement = reader.readLn()
         }
