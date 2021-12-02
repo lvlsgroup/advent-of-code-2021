@@ -1,17 +1,10 @@
 fun main() {
-    val day = Day2()
-    day.a()
-    day.b()
+    Day2()
 }
 
-class Day2 {
-    fun main() {
-        a()
-        b()
-    }
-
-    fun a() {
-        val reader = getReader(this.javaClass.name)
+class Day2 : Runner() {
+    override fun a() {
+        val reader = getReader()
         var horizontal = 0
         var vertical = 0
         var instructionAndMovement = reader.readLn()
@@ -29,8 +22,8 @@ class Day2 {
         println(horizontal * vertical)
     }
 
-    fun b() {
-        val reader = getReader(this.javaClass.name)
+    override fun b() {
+        val reader = getReader()
         var horizontal = 0
         var vertical = 0
         var aim = 0

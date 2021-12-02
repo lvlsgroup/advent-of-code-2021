@@ -1,7 +1,8 @@
 import java.io.BufferedReader
 import java.io.FileReader
 
-fun getReader(fileName: String): BufferedReader {
+fun <T : Any> T.getReader(): BufferedReader {
+    val fileName = this.javaClass.name
     return BufferedReader(FileReader("src/main/kotlin/$fileName/$fileName.txt"))
 }
 

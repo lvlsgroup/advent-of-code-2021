@@ -1,14 +1,10 @@
 fun main() {
-    val day = Day1()
-    day.a()
-    day.b()
+    Day1()
 }
 
-class Day1 {
-
-
-    fun a() {
-        val reader = getReader(this.javaClass.name)
+class Day1 : Runner() {
+    override fun a() {
+        val reader = getReader()
         var currentNumber = reader.readInt()
         var inreases = 0
         var lastNumber = Integer.MAX_VALUE
@@ -22,8 +18,8 @@ class Day1 {
         println(inreases)
     }
 
-    fun b() {
-        val reader = getReader(this.javaClass.name)
+    override fun b() {
+        val reader = getReader()
         val ints = mutableListOf<Int>()
         var currentNumber = reader.readInt()
         currentNumber?.let { ints.add(it) }
