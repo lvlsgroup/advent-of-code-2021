@@ -1,7 +1,7 @@
 abstract class Runner {
     init {
-        a()
-        b()
+        this.a()
+        this.b()
     }
 
     abstract fun b()
