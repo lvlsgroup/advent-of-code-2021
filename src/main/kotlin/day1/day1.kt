@@ -8,7 +8,7 @@ class Day1 {
 
 
     fun a() {
-        val reader = getReader("day1")
+        val reader = getReader(this.javaClass.name)
         var currentNumber = reader.readInt()
         var inreases = 0
         var lastNumber = Integer.MAX_VALUE
@@ -23,7 +23,7 @@ class Day1 {
     }
 
     fun b() {
-        val reader = getReader("day1")
+        val reader = getReader(this.javaClass.name)
         val ints = mutableListOf<Int>()
         var currentNumber = reader.readInt()
         currentNumber?.let { ints.add(it) }

@@ -11,7 +11,7 @@ class Day2 {
     }
 
     fun a() {
-        val reader = getReader("day2")
+        val reader = getReader(this.javaClass.name)
         var horizontal = 0
         var vertical = 0
         var instructionAndMovement = reader.readLn()
@@ -30,7 +30,7 @@ class Day2 {
     }
 
     fun b() {
-        val reader = getReader("day2")
+        val reader = getReader(this.javaClass.name)
         var horizontal = 0
         var vertical = 0
         var aim = 0

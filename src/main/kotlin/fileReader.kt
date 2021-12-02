@@ -2,7 +2,7 @@ import java.io.BufferedReader
 import java.io.FileReader
 
 fun getReader(fileName: String): BufferedReader {
-    return BufferedReader(FileReader("src/main/kotlin/$fileName.txt"))
+    return BufferedReader(FileReader("src/main/kotlin/$fileName/$fileName.txt"))
 }
 
 
