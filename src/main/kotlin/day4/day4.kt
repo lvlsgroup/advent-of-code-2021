@@ -10,17 +10,7 @@ class Day4 : Runner() {
         val numbers = gamePlan.first
         var bingos = gamePlan.second
         numbers.forEach { nextNumber ->
-            bingos = bingos.map { bingo ->
-                bingo.mapIndexed { i, row ->
-                    row.mapIndexed { j, number ->
-                        if (number == nextNumber) {
-                            -1
-                        } else {
-                            number
-                        }
-                    }
-                }
-            }.toMutableList()
+            bingos = markNext(bingos, nextNumber)
             bingos.forEach { bingo ->
                 if (hasBingo(bingo)) {
                     println(calculateScore(bingo) * nextNumber)
@@ -35,17 +25,7 @@ class Day4 : Runner() {
         val numbers = gamePlan.first
         var bingos = gamePlan.second
         numbers.forEach { nextNumber ->
-            bingos = bingos.map { bingo ->
-                bingo.mapIndexed { i, row ->
-                    row.mapIndexed { j, number ->
-                        if (number == nextNumber) {
-                            -1
-                        } else {
-                            number
-                        }
-                    }
-                }
-            }.toMutableList()
+            bingos = markNext(bingos, nextNumber)
             bingos = bingos.filter { bingo ->
                 if (hasBingo(bingo)) {
                     if (bingos.size == 1) {
@@ -60,20 +40,27 @@ class Day4 : Runner() {
         }
     }
 
+    private fun markNext(bingos: MutableList<List<List<Int>>>, nextNumber: Int): MutableList<List<List<Int>>> {
+        return bingos.map { bingo ->
+            bingo.map { row ->
+                row.map { number ->
+                    if (number == nextNumber) {
+                        -1
+                    } else {
+                        number
+                    }
+                }
+            }
+        }.toMutableList()
+    }
+
     private fun calculateScore(bingo: List<List<Int>>): Int {
-        var sum = 0
-        bingo.forEach { it.forEach { if (it != -1) sum += it } }
-        return sum
+        return bingo.sumOf { it.filter { it != -1 }.sum() }
     }
 
     private fun hasBingo(bingo: List<List<Int>>): Boolean {
         bingo.forEach { row ->
-            var allInRowMarked = true
-            row.forEach { number ->
-                if (number != -1) {
-                    allInRowMarked = false
-                }
-            }
+            val allInRowMarked = row.all { it == -1 }
             if (allInRowMarked) {
                 return true
             }
